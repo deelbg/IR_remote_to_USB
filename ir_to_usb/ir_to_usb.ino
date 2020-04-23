@@ -8,6 +8,12 @@
 #define IR_REPEATER_IN_PIN 7   // The pin number on which the IR Repeater input - IR receiver is connected.
 #define IR_REPEATER_OUT_PIN 9  // The pin number on which the IR Repeater output - a LED is connected. - Warning - do not change!!!!
 
+#define HDMI_SWITCH_OUT_PIN 10             // HDMI switch controll output pin.
+#define HDMI_SWITCH_CHANEL_TV_PIN 14       // HDMI switch feedback for TV channel pin.
+#define HDMI_SWITCH_CHANEL_AUX_PIN 16      // HDMI switch feedback for AUX channel.
+#define HDMI_SWITCH_OUT_PULSE_TIME_MS 150  // HDMI switch controll pulse lenght.
+#define HDMI_SWITCH_OUT_WAIT_TIME_MS 500   // HDMI switch controll period between switch attempts.
+
 #define IR_NO_CODE     0x00000000ul
 #define IR_REPEAT_CODE 0xFFFFFFFFul
 
@@ -52,6 +58,8 @@ tv_mode_t g_tv_mode = TV;
 IRrecv irrecv(IR_RECEIVER_PIN);
 decode_results g_ir_result;
 
+
+void hdmi_switch_out_pulse(void);
 void ir_repeater_init(void);
 void ir_repeater_pwm_on(void);
 void ir_repeater_pwm_off(void);
@@ -69,6 +77,11 @@ void setup()
   Keyboard.releaseAll();
   irrecv.enableIRIn();    // Start the receiver
   ir_repeater_init();
+
+  pinMode(HDMI_SWITCH_OUT_PIN, OUTPUT);
+  digitalWrite(HDMI_SWITCH_OUT_PIN, LOW);
+  pinMode(HDMI_SWITCH_CHANEL_TV_PIN, INPUT);
+  pinMode(HDMI_SWITCH_CHANEL_AUX_PIN, INPUT);
 }
 
 void loop() {
@@ -117,7 +130,32 @@ void loop() {
     
     irrecv.resume(); // Wait for another IR code
   }
+
+  if (TV == g_tv_mode)
+  {
+    while(LOW == digitalRead(HDMI_SWITCH_CHANEL_TV_PIN))
+    {
+      hdmi_switch_out_pulse();
+    }    
+  }
+  else
+  {    
+    while(LOW == digitalRead(HDMI_SWITCH_CHANEL_AUX_PIN))
+    {
+      hdmi_switch_out_pulse();
+    }
+  }
+  
   delay(100);
+}
+
+
+void hdmi_switch_out_pulse(void)
+{
+  digitalWrite(HDMI_SWITCH_OUT_PIN, HIGH);
+  delay(HDMI_SWITCH_OUT_PULSE_TIME_MS);
+  digitalWrite(HDMI_SWITCH_OUT_PIN, LOW);
+  delay(HDMI_SWITCH_OUT_WAIT_TIME_MS);
 }
 
 void ir_repeater_init(void)
