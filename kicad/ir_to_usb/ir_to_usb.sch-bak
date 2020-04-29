@@ -15,10 +15,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L ArduinoProMicro:ArduinoProMicro U?
+L ArduinoProMicro:ArduinoProMicro U1
 U 1 1 5EA944A3
 P 4550 1250
-F 0 "U?" H 4525 1315 50  0000 C CNN
+F 0 "U1" H 4525 1315 50  0000 C CNN
 F 1 "ArduinoProMicro" H 4525 1224 50  0000 C CNN
 F 2 "" H 4550 1250 50  0001 C CNN
 F 3 "" H 4550 1250 50  0001 C CNN
@@ -26,10 +26,10 @@ F 3 "" H 4550 1250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_BJT:BC337 Q?
+L Transistor_BJT:BC337 Q1
 U 1 1 5EA94FAF
 P 5950 2950
-F 0 "Q?" H 6141 2996 50  0000 L CNN
+F 0 "Q1" H 6141 2996 50  0000 L CNN
 F 1 "BC337" H 6141 2905 50  0000 L CNN
 F 2 "Package_TO_SOT_THT:TO-92_Inline" H 6150 2875 50  0001 L CIN
 F 3 "https://diotec.com/tl_files/diotec/files/pdf/datasheets/bc337.pdf" H 5950 2950 50  0001 L CNN
@@ -37,37 +37,37 @@ F 3 "https://diotec.com/tl_files/diotec/files/pdf/datasheets/bc337.pdf" H 5950 2
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_Small R?
+L Device:R_Small R4
 U 1 1 5EA959CA
-P 5550 2950
-F 0 "R?" V 5354 2950 50  0000 C CNN
-F 1 "R_Small" V 5445 2950 50  0000 C CNN
-F 2 "" H 5550 2950 50  0001 C CNN
-F 3 "~" H 5550 2950 50  0001 C CNN
-	1    5550 2950
-	0    1    1    0   
+P 5200 2750
+F 0 "R4" V 5004 2750 50  0000 C CNN
+F 1 "10K" V 5095 2750 50  0000 C CNN
+F 2 "" H 5200 2750 50  0001 C CNN
+F 3 "~" H 5200 2750 50  0001 C CNN
+	1    5200 2750
+	-1   0    0    1   
 $EndComp
 $Comp
-L Device:R_Small R?
+L Device:R_Small R3
 U 1 1 5EA97196
-P 5550 2600
-F 0 "R?" V 5354 2600 50  0000 C CNN
-F 1 "R_Small" V 5445 2600 50  0000 C CNN
-F 2 "" H 5550 2600 50  0001 C CNN
-F 3 "~" H 5550 2600 50  0001 C CNN
-	1    5550 2600
-	0    1    1    0   
+P 5850 2550
+F 0 "R3" V 5654 2550 50  0000 C CNN
+F 1 "10K" V 5745 2550 50  0000 C CNN
+F 2 "" H 5850 2550 50  0001 C CNN
+F 3 "~" H 5850 2550 50  0001 C CNN
+	1    5850 2550
+	-1   0    0    1   
 $EndComp
 $Comp
-L Device:R_Small R?
+L Device:R_Small R2
 U 1 1 5EA97679
-P 5550 2250
-F 0 "R?" V 5354 2250 50  0000 C CNN
-F 1 "R_Small" V 5445 2250 50  0000 C CNN
-F 2 "" H 5550 2250 50  0001 C CNN
-F 3 "~" H 5550 2250 50  0001 C CNN
-	1    5550 2250
-	0    1    1    0   
+P 5550 2550
+F 0 "R2" V 5354 2550 50  0000 C CNN
+F 1 "10K" V 5445 2550 50  0000 C CNN
+F 2 "" H 5550 2550 50  0001 C CNN
+F 3 "~" H 5550 2550 50  0001 C CNN
+	1    5550 2550
+	-1   0    0    1   
 $EndComp
 $Comp
 L power:GND #PWR?
@@ -82,26 +82,6 @@ F 3 "" H 6050 3250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6050 3250 6050 3150
-Wire Wire Line
-	5750 2950 5650 2950
-Wire Wire Line
-	5450 2950 5200 2950
-Wire Wire Line
-	5200 2950 5200 2550
-Wire Wire Line
-	5200 2550 5100 2550
-Wire Wire Line
-	5450 2600 5300 2600
-Wire Wire Line
-	5300 2600 5300 2450
-Wire Wire Line
-	5300 2450 5100 2450
-Wire Wire Line
-	5450 2250 5300 2250
-Wire Wire Line
-	5300 2250 5300 2350
-Wire Wire Line
-	5300 2350 5100 2350
 $Comp
 L Connector:USB_B_Micro J?
 U 1 1 5EA9BEC7
@@ -157,18 +137,6 @@ F 3 "" H 6150 1950 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6050 2750 6050 2500
-Wire Wire Line
-	5950 2600 5950 2400
-Wire Wire Line
-	5950 2400 6050 2400
-Wire Wire Line
-	5650 2600 5950 2600
-Wire Wire Line
-	5650 2250 5950 2250
-Wire Wire Line
-	5950 2250 5950 2300
-Wire Wire Line
-	5950 2300 6050 2300
 Wire Wire Line
 	6050 2200 6050 1950
 Wire Wire Line
@@ -344,4 +312,54 @@ Wire Wire Line
 	2900 2400 2850 2400
 Wire Wire Line
 	2850 2400 2850 2500
+$Comp
+L power:GND #PWR?
+U 1 1 5EAA0A67
+P 5700 2700
+F 0 "#PWR?" H 5700 2450 50  0001 C CNN
+F 1 "GND" H 5705 2527 50  0000 C CNN
+F 2 "" H 5700 2700 50  0001 C CNN
+F 3 "" H 5700 2700 50  0001 C CNN
+	1    5700 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 2950 5200 2950
+Wire Wire Line
+	5200 2950 5200 2850
+Wire Wire Line
+	5200 2650 5200 2550
+Wire Wire Line
+	5200 2550 5100 2550
+Wire Wire Line
+	6050 2300 5550 2300
+Wire Wire Line
+	5200 2300 5200 2350
+Wire Wire Line
+	5200 2350 5100 2350
+Wire Wire Line
+	6050 2400 5850 2400
+Wire Wire Line
+	5250 2400 5250 2450
+Wire Wire Line
+	5250 2450 5100 2450
+Wire Wire Line
+	5550 2650 5550 2700
+Wire Wire Line
+	5850 2700 5850 2650
+Wire Wire Line
+	5550 2700 5700 2700
+Connection ~ 5700 2700
+Wire Wire Line
+	5700 2700 5850 2700
+Wire Wire Line
+	5550 2450 5550 2300
+Connection ~ 5550 2300
+Wire Wire Line
+	5550 2300 5200 2300
+Wire Wire Line
+	5850 2450 5850 2400
+Connection ~ 5850 2400
+Wire Wire Line
+	5850 2400 5250 2400
 $EndSCHEMATC
